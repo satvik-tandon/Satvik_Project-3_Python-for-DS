@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Loan Eligibility Checker</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center my-5">
+        <div class="card p-4">
+            <div class="card-header">
+                <h1 class="display-4">Home</h1>
+            </div>
+            <div class="card-body">
+                <h2 class="mb-4">{{session.username}}</h2>
+                <p class="lead">Welcome to the House Loan Eligibility Check Page</p>
+                <a class="btn btn-primary btn-lg mt-3" href="{{ url_for('login') }}">Login</a>
+                <a class="btn btn-secondary btn-lg mt-3 ml-2" href="{{ url_for('register') }}">Register</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

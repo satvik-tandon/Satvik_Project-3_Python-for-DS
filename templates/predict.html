@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Loan Eligibility Prediction</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='predict.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h1 class="display-4">House Loan Eligibility Prediction</h1>
+        </div>
+        <div class="card p-4">
+            <form action="{{ url_for('predict') }}" method="post">
+                <h3 class="text-center mb-4">Please Enter the Details to Check the House Loan Eligibility</h3>
+                
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select class="custom-select" id="gender" name="gender" required>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="married">Married:</label>
+                    <select class="custom-select" id="married" name="married" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dependents">Dependents:</label>
+                    <input class="form-control" id="dependents" name="dependents" required type="number">
+                </div>
+
+                <div class="form-group">
+                    <label for="education">Education:</label>
+                    <select class="custom-select" id="education" name="education" required>
+                        <option value="0">Graduate</option>
+                        <option value="1">Non Graduate</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="self_employed">Self Employed:</label>
+                    <select class="custom-select" id="self_employed" name="self_employed" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="applicant_income">Applicant Income ($):</label>
+                    <input class="form-control" id="applicant_income" name="applicant_income" required type="number" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="coapplicant_income">Coapplicant Income ($):</label>
+                    <input class="form-control" id="coapplicant_income" name="coapplicant_income" required type="number" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="loan_amount">Loan Amount in Thousands ($):</label>
+                    <input class="form-control" id="loan_amount" name="loan_amount" required type="number" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="loan_term">Loan Term (in months):</label>
+                    <input class="form-control" id="loan_term" name="loan_term" required type="number">
+                </div>
+
+                <div class="form-group">
+                    <label for="credit_history">Credit History:</label>
+                    <select class="custom-select" id="credit_history" name="credit_history">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="property_area">Property Area:</label>
+                    <select class="custom-select" id="property_area" name="property_area">
+                        <option value="0">Rural</option>
+                        <option value="1">Semi Urban</option>
+                        <option value="2">Urban</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary btn-block mt-3" type="submit">Check Eligibility</button>
+            </form>
+
+            <a class="btn btn-secondary btn-block mt-3" href="{{ url_for('logout') }}">Log Out</a>
+            <h3 class="text-center mt-3">{{ prediction_text }}</h3>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
